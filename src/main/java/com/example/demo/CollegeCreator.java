@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class CollegeCreator {
 
     @Bean
-    public College creatCollege()
+    public College createCollegeBean()
     {
         return new College();
     }
