@@ -17,12 +17,17 @@ public class TestAutoWire {
     @Autowired
     EventPuller eventpuller;
 
+    @Autowired
+    ProfileInterface profileInterface;
+
 
 
     void process(){
          eventpuller.pullEvents();
 
          System.out.println(eventpuller.getSource());
+
+         profileInterface.process();
     }
 
 }
