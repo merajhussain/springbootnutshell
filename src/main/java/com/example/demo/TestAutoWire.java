@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -20,6 +21,10 @@ public class TestAutoWire {
     @Autowired
     ProfileInterface profileInterface;
 
+    @Autowired
+    @Qualifier("emailSender")
+    NotificationSenderService notificationSenderService;
+
 
 
     void process(){
@@ -28,6 +33,7 @@ public class TestAutoWire {
          System.out.println(eventpuller.getSource());
 
          profileInterface.process();
+         notificationSenderService.send();
     }
 
 }
