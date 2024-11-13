@@ -2,6 +2,7 @@ package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -26,6 +27,10 @@ public class TestAutoWire {
     NotificationSenderService notificationSenderService;
 
 
+    @Autowired
+    IDocument document;
+
+
 
     void process(){
          eventpuller.pullEvents();
@@ -34,6 +39,8 @@ public class TestAutoWire {
 
          profileInterface.process();
          notificationSenderService.send();
+
+         System.out.println(document.getContent());
     }
 
 }
